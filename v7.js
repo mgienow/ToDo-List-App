@@ -1,3 +1,10 @@
+/* v7 task was to add in buttons that will display todos and toggle all when clicked, though still console
+logging in the console.
+
+main concepts: document.getElementById; the button element in the html markup and accessing the DOM
+I've started adding in the HTML code that goes with the JS in comments at the bottom of this file
+*/
+
 var todoList = {
   todos: [],
   displayTodos: function() {
@@ -37,7 +44,7 @@ var todoList = {
     toggleAll: function(){
       let totalTodos = this.todos.length
       let completedTodos = 0
-      
+
       //get number of completed todos:
       for(let i=0; i<totalTodos; i++){
         if(this.todos[i].completed === true){
@@ -53,13 +60,42 @@ var todoList = {
         for(let i=0; i<totalTodos; i++){
           this.todos[i].completed = true
         }
-        
+
       }
       this.displayTodos()
     }
 }
 
-/*
-Version 6: toggleAll.  if everything is true, make everything false; else, make everything truetion 
+//1. we want access to our display todos method
+  var displayTodosButton = document.getElementById('displayTodosButton');
+  console.log(displayTodosButton);
+//2. we want to run display todos when button is clicked
+//to do this, ADD EVENT LISTENER
+  displayTodosButton.addEventListener('click', function(){
+      todoList.displayTodos();
+  });
 
-*/
+  var toggleAllButton = document.getElementById('toggleAllButton');
+  console.log(toggleAllButton)
+  toggleAllButton.addEventListener('click', function(){
+      todoList.toggleAll();
+  });
+
+
+// <!DOCTYPE html>
+// <html>
+//
+//   <head>
+//     <link rel="stylesheet" href="style.css">
+//
+//   </head>
+//
+//   <body>
+//     <h1>ToDo List</h1>
+//
+//     <button id="displayTodosButton">Display ToDos</button>
+//     <button id='toggleAllButton'>Toggle All</button>
+//
+//   <script src="script.js"></script>
+//   </body>
+// </html>
