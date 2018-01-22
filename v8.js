@@ -2,6 +2,7 @@
 to getElemetByID in markup, to creating a handlers object and using 'onclick' attribute to
 access the DOM from JS
 
+Second commit: addTodoText button and text input to handlers object and markup
 */
 var todoList = {
   todos: [],
@@ -85,6 +86,11 @@ var handlers = {
   },
   toggleAll: function() {
     todoList.toggleAll();
+  },
+  addTodo: function () {
+    let addTodoTextInput = document.getElementById('addTodoTextInput');
+    todoList.addTodo(addTodoTextInput.value);
+    addTodoTextInput.value = '';
   }
 };
 
