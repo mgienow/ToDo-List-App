@@ -3,6 +3,9 @@ to getElemetByID in markup, to creating a handlers object and using 'onclick' at
 access the DOM from JS
 
 Second commit: addTodoText button and text input to handlers object and markup
+
+Third commit: change todo, delete todo, and toggle completed methods added, with buttons and text/number
+inputs, to handlers object and markup
 */
 var todoList = {
   todos: [],
@@ -91,17 +94,30 @@ var handlers = {
     let addTodoTextInput = document.getElementById('addTodoTextInput');
     todoList.addTodo(addTodoTextInput.value);
     addTodoTextInput.value = '';
+  },
+  changeTodo: function(){
+    let changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
+    let changeTodoTextInput = document.getElementById('changeTodoTextInput');
+
+    todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
+    changeTodoPositionInput.value = '';
+    changeTodoTextInput.value = '';
+  },
+  deleteTodo: function(){
+    let deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
+    todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+    deleteTodoPositionInput.value = '';
+  },
+  toggleCompleted: function() {
+    let toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
+    todoList.toggleCompleted(toggleCompletedPositionInput.value);
+    toggleCompletedPositionInput.value = '';
   }
 };
 
 
-
-
-
-
-
-
-
+//
+//
 // <!DOCTYPE html>
 // <html>
 //
@@ -113,12 +129,30 @@ var handlers = {
 //   <body>
 //     <h1>ToDo List</h1>
 //
+//     <!--<button id="displayTodosButton">Display ToDos</button>-->
+//     <!--<button id='toggleAllButton'>Toggle All</button>-->
+//
 //     <button onclick="handlers.displayTodos()">Display ToDos</button>
 //     <button onclick="handlers.toggleAll()">Toggle All</button>
-//
 //     <div>
 //       <button onclick ="handlers.addTodo()">Add</button>
 //       <input type ="text" id="addTodoTextInput">
+//     </div>
+//
+//     <div>
+//       <button onclick="handlers.changeTodo()">Change ToDo</button>
+//       <input id="changeTodoPositionInput" type="number">
+//       <input id="changeTodoTextInput" type="text">
+//     </div>
+//
+//     <div>
+//       <button onclick="handlers.deleteTodo()">Delete ToDo</button>
+//       <input id="deleteTodoPositionInput" type="number">
+//     </div>
+//
+//     <div>
+//       <button onclick="handlers.toggleCompleted()">Toggle Complete</button>
+//       <input id="toggleCompletedPositionInput" type="number">
 //     </div>
 //
 //   <script src="script.js"></script>
