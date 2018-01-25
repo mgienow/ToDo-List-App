@@ -121,7 +121,22 @@ var view = {
           todosUl.innerHTML = '';
       for(var i=0; i<todoList.todos.length; i++){
          var todoLi = document.createElement('li');
-         todoLi.textContent = todoList.todos[i].todoText;
+         // todoLi.textContent = todoList.todos[i].todoText; <-- replace this line
+         //with: 1. create var todo to hold value of todolist.todos[i] = save time/typing
+        //      2. create var todoListWithCompletion and intialize to empty. this will contain the state
+        // 3. now, if todo is completed, set the li tectContent to be (x) plus the todoText;
+        // otherwise, ( ) with todoText.
+        //4  now assing the outcome of todoTextwithCompletion to be value of todoLi's ttext content
+        // 5. and append that to the todosUL in markup
+                var todo = todoList.todos[i];
+                var todoTextWithCompletion = '';
+
+                if(todo.completed === true){
+                  todoTextWithCompletion = '(x) ' + todo.todoText;
+                } else {
+                  todoTextWithCompletion = '( ) ' + todo.todoText;
+                }
+                todoLi.textContent = todoTextWithCompletion;
          todosUl.appendChild(todoLi);
        }
   }
