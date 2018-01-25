@@ -1,4 +1,4 @@
-// v8 Final: escape from the console. Last step of v8
+// v9 Final: escape from the console. Last step of v8
 //  was to add the view.displayTodos() method to each of the properties
 //   on the handler object. view.displayTodos() presents the todo list
 //   in the DOM
