@@ -115,6 +115,29 @@ var handlers = {
   }
 };
 
+var view = {
+  displayTodos: function() {
+          var todosUl=document.querySelector('ul');
+          todosUl.innerHTML = '';
+      for(var i=0; i<todoList.todos.length; i++){
+         var todoLi = document.createElement('li');
+         todoLi.textContent = todoList.todos[i].todoText;
+         todosUl.appendChild(todoLi);
+       }
+  }
+};
+
+/* v8.1: create view object. put display todos method on the object.
+    - initiate a variable and assign it the value of the empty 'ul' element we have put there,
+      using querySelector to reach into markup and grab it
+    -set the innerHTML of the ul to empty, so that every time the function runs you're starting from a clean slate.
+      otherwise, it will just keep adding the already extant todos along with the new concepts
+    - for loop that accesses the todoList object and iterates over any todos that are in the array
+      - initialize todoLi variable to create li element (with createElement)
+      - set todoLi's text content to hold the value of the text content of the todo list item at position [i] on the todoList object
+      - append the current todoLi to the ul
+      go to next value of i in for loop
+*/
 
 //
 //
