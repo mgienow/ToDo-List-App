@@ -90,6 +90,7 @@ var view = {
       }
 
       todoLi.textContent = todoTextWithCompletion;
+      todoLi.appendChild(this.createDeleteButton());
       todosUl.appendChild(todoLi);
     }
   },
@@ -100,5 +101,9 @@ var view = {
       return deleteButton;
   }
 };
-//starting at line 95, added createDeletButton method on the view object to
+//v10.1: starting at line 95, added createDeletButton method on the view object to
 //have a way for a delete button to appear in the app
+
+//v10.2: line 93, took the todoLi and used appendChild to add the
+//createDeleteButton() method to displayTodos, so that every time a newTodo
+//item is created it will have its own delete buttons
